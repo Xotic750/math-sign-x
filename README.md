@@ -28,7 +28,7 @@ ES6-compliant shim for Math.sign.
 Requires ES3 or above.
 
 **See**: [20.2.2.29 Math.sign(x)](http://www.ecma-international.org/ecma-262/6.0/#sec-math.sign)  
-**Version**: 1.0.0  
+**Version**: 1.1.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
