@@ -1,7 +1,7 @@
 /**
  * @file ES6-compliant shim for Math.sign.
  * @see {@link http://www.ecma-international.org/ecma-262/6.0/#sec-math.sign|20.2.2.29 Math.sign(x)}
- * @version 1.3.0
+ * @version 2.0.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -10,15 +10,53 @@
 
 'use strict';
 
-var $isNaN = require('is-nan');
+var toNumber = require('to-number-x');
+var nativeSign = typeof Math.sign === 'function' && Math.sign;
 
 var $sign;
-if (typeof Math.sign === 'function') {
+if (nativeSign) {
   try {
-    if (Math.sign(10) === 1 && Math.sign(-10) === -1 && Math.sign(0) === 0) {
-      $sign = Math.sign;
+    if (nativeSign(-10) === -1 && nativeSign(10) === 1 && 1 / nativeSign(-0) === 1 / -0) {
+      var nonWS = [
+        '\u0085',
+        '\u200b',
+        '\ufffe'
+      ];
+
+      var lacksOctalSupport = nativeSign('0o10') !== 1;
+      var lacksBinarySupport = nativeSign('0b10') !== 1;
+      var trimsNonWhitespace;
+      for (var i = 0; i < nonWS.length; i += 1) {
+        var c = nonWS[i];
+        trimsNonWhitespace = nativeSign(c + 0 + c) === 0;
+        // eslint-disable-next-line max-depth
+        if (trimsNonWhitespace) {
+          // eslint-disable-next-line no-restricted-syntax
+          break;
+        }
+      }
+
+      if (lacksOctalSupport || lacksBinarySupport || trimsNonWhitespace) {
+        $sign = function sign(x) {
+          return nativeSign(toNumber(x));
+        };
+      } else {
+        $sign = nativeSign;
+      }
     }
   } catch (ignore) {}
+}
+
+if (Boolean($sign) === false) {
+  var numberIsNaN = require('is-nan');
+  $sign = function sign(x) {
+    var n = toNumber(x);
+    if (n === 0 || numberIsNaN(n)) {
+      return n;
+    }
+
+    return n > 0 ? 1 : -1;
+  };
 }
 
 /**
@@ -41,11 +79,4 @@ if (typeof Math.sign === 'function') {
  * mathSign('foo'); // NaN
  * mathSign();      // NaN
  */
-module.exports = $sign || function sign(x) {
-  var n = Number(x);
-  if (n === 0 || $isNaN(n)) {
-    return n;
-  }
-
-  return n > 0 ? 1 : -1;
-};
+module.exports = $sign;

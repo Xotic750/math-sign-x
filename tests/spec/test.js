@@ -46,7 +46,13 @@ describe('mathSign', function () {
 
   it('should be correct', function () {
     // we also verify that [[ToNumber]] is being called
-    [Infinity, 1].forEach(function (value) {
+    [
+      Infinity,
+      1,
+      '0o10',
+      '0b10',
+      ' \t\r\n1 \t\r\n'
+    ].forEach(function (value) {
       expect(mathSign(value)).toBe(1);
       expect(mathSign(String(value))).toBe(1);
     });
@@ -67,6 +73,7 @@ describe('mathSign', function () {
     expect(isNegativeZero(mathSign(-0))).toBe(true);
     expect(isNegativeZero(mathSign('-0'))).toBe(true);
     expect(numberIsNaN(mathSign(NaN))).toBe(true);
+    expect(numberIsNaN(mathSign('\u0085\u200b\ufffe0\u0085\u200b\ufffe'))).toBe(true);
     expect(numberIsNaN(mathSign('NaN'))).toBe(true);
     expect(numberIsNaN(mathSign(undefined))).toBe(true);
   });
