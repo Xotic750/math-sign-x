@@ -1,17 +1,19 @@
-'use strict';
+let lib;
 
-var lib;
 if (typeof module === 'object' && module.exports) {
   require('es5-shim');
   require('es5-shim/es5-sham');
+
   if (typeof JSON === 'undefined') {
     JSON = {};
   }
+
   require('json3').runInContext(null, JSON);
   require('es6-shim');
-  var es7 = require('es7-shim');
-  Object.keys(es7).forEach(function (key) {
-    var obj = es7[key];
+  const es7 = require('es7-shim');
+  Object.keys(es7).forEach(function(key) {
+    const obj = es7[key];
+
     if (typeof obj.shim === 'function') {
       obj.shim();
     }
@@ -21,67 +23,61 @@ if (typeof module === 'object' && module.exports) {
   lib = returnExports;
 }
 
-var mathSign = lib.sign;
-var mathSign2016 = lib.sign2016;
-var mathSign2018 = lib.sign2018;
+const mathSign = lib.sign;
+const mathSign2016 = lib.sign2016;
+const mathSign2018 = lib.sign2018;
 
-var ifFunctionsHaveNamesIt = function foo() {}.name === 'foo' ? it : xit;
+const ifFunctionsHaveNamesIt = function foo() {}.name === 'foo' ? it : xit;
 
-var isPositiveZero = function (zero) {
+const isPositiveZero = function(zero) {
   return zero === 0 && 1 / zero === Infinity;
 };
 
-var isNegativeZero = function (zero) {
+const isNegativeZero = function(zero) {
   return zero === 0 && 1 / zero === -Infinity;
 };
 
-var numberIsNaN = function (value) {
+const numberIsNaN = function(value) {
   return value !== value;
 };
 
-describe('mathSign', function () {
-  describe('basic', function () {
-    it('mathSign is a function', function () {
+describe('mathSign', function() {
+  describe('basic', function() {
+    it('mathSign is a function', function() {
       expect(typeof mathSign).toBe('function');
     });
 
-    it('mathSign2016 is a function', function () {
+    it('mathSign2016 is a function', function() {
       expect(typeof mathSign2016).toBe('function');
     });
 
-    it('mathSign is not mathSign2016', function () {
+    it('mathSign is not mathSign2016', function() {
       expect(mathSign).not.toBe(mathSign2016);
     });
 
-    it('mathSign is mathSign2018', function () {
+    it('mathSign is mathSign2018', function() {
       expect(mathSign).toBe(mathSign2018);
     });
   });
 
-  describe('mathSign2016', function () {
-    ifFunctionsHaveNamesIt('has the right name', function () {
+  describe('mathSign2016', function() {
+    ifFunctionsHaveNamesIt('has the right name', function() {
       expect(mathSign2016.name).toBe('sign2016');
     });
 
-    it('has the right arity', function () {
-      expect(mathSign2016.length).toBe(1);
+    it('has the right arity', function() {
+      expect(mathSign2016).toHaveLength(1);
     });
 
-    it('should be correct', function () {
+    it('should be correct', function() {
       // we also verify that [[ToNumber]] is being called
-      [
-        Infinity,
-        1,
-        '0o10',
-        '0b10',
-        ' \t\r\n1 \t\r\n'
-      ].forEach(function (value) {
+      [Infinity, 1, '0o10', '0b10', ' \t\r\n1 \t\r\n'].forEach(function(value) {
         expect(mathSign2016(value)).toBe(1);
         expect(mathSign2016(String(value))).toBe(1);
       });
       expect(mathSign2016(true)).toBe(1);
 
-      [-Infinity, -1].forEach(function (value) {
+      [-Infinity, -1].forEach(function(value) {
         expect(mathSign2016(value)).toBe(-1);
         expect(mathSign2016(String(value))).toBe(-1);
       });
@@ -103,30 +99,24 @@ describe('mathSign', function () {
     });
   });
 
-  describe('mathSign2018', function () {
-    ifFunctionsHaveNamesIt('has the right name', function () {
+  describe('mathSign2018', function() {
+    ifFunctionsHaveNamesIt('has the right name', function() {
       expect(mathSign2018.name).toBe('sign2018');
     });
 
-    it('has the right arity', function () {
-      expect(mathSign2018.length).toBe(1);
+    it('has the right arity', function() {
+      expect(mathSign2018).toHaveLength(1);
     });
 
-    it('should be correct', function () {
+    it('should be correct', function() {
       // we also verify that [[ToNumber]] is being called
-      [
-        Infinity,
-        1,
-        '0o10',
-        '0b10',
-        ' \t\r\n1 \t\r\n'
-      ].forEach(function (value) {
+      [Infinity, 1, '0o10', '0b10', ' \t\r\n1 \t\r\n'].forEach(function(value) {
         expect(mathSign2018(value)).toBe(1);
         expect(mathSign2018(String(value))).toBe(1);
       });
       expect(mathSign2018(true)).toBe(1);
 
-      [-Infinity, -1].forEach(function (value) {
+      [-Infinity, -1].forEach(function(value) {
         expect(mathSign2018(value)).toBe(-1);
         expect(mathSign2018(String(value))).toBe(-1);
       });

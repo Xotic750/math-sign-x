@@ -1,22 +1,22 @@
 /**
  * @file Shim for Math.sign.
  * @see {@link http://www.ecma-international.org/ecma-262/6.0/#sec-math.sign|20.2.2.29 Math.sign(x)}
- * @version 3.0.0
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
+ * @version 3.0.0.
+ * @author Xotic750 <Xotic750@gmail.com>.
+ * @copyright  Xotic750.
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module math-sign-x
+ * @module Math-sign-x.
  */
 
-'use strict';
+const libToNumber = require('to-number-x');
 
-var libToNumber = require('to-number-x');
-var toNumber2016 = libToNumber.toNumber2016;
-var toNumber2018 = libToNumber.toNumber2018;
-var numberIsNaN = require('is-nan-x');
+const {toNumber2016} = libToNumber;
+const {toNumber2018} = libToNumber;
+const numberIsNaN = require('is-nan-x');
 
-var $sign2016 = function sign2016(x) {
-  var n = toNumber2016(x);
+const $sign2016 = function sign2016(x) {
+  const n = toNumber2016(x);
+
   if (n === 0 || numberIsNaN(n)) {
     return n;
   }
@@ -24,8 +24,9 @@ var $sign2016 = function sign2016(x) {
   return n > 0 ? 1 : -1;
 };
 
-var $sign2018 = function sign2018(x) {
-  var n = toNumber2018(x);
+const $sign2018 = function sign2018(x) {
+  const n = toNumber2018(x);
+
   if (n === 0 || numberIsNaN(n)) {
     return n;
   }
@@ -41,14 +42,14 @@ module.exports = {
 
   /**
    * This method returns the sign of a number, indicating whether the number is positive,
-   * negative or zero. (ES2016)
+   * negative or zero. (ES2016).
    *
    * @param {*} x - A number.
    * @returns {number} A number representing the sign of the given argument. If the argument
    * is a positive number, negative number, positive zero or negative zero, the function will
    * return 1, -1, 0 or -0 respectively. Otherwise, NaN is returned.
    * @example
-   * var mathSign = require('math-sign-x').sign2016;
+   * var mathSign = require('math-sign-x').sign2016;.
    *
    * mathSign(3);     //  1
    * mathSign(-3);    // -1
@@ -63,14 +64,14 @@ module.exports = {
 
   /**
    * This method returns the sign of a number, indicating whether the number is positive,
-   * negative or zero. (ES2018)
+   * negative or zero. (ES2018).
    *
    * @param {*} x - A number.
    * @returns {number} A number representing the sign of the given argument. If the argument
    * is a positive number, negative number, positive zero or negative zero, the function will
    * return 1, -1, 0 or -0 respectively. Otherwise, NaN is returned.
    * @example
-   * var mathSign = require('math-sign-x').sign2018;
+   * var mathSign = require('math-sign-x').sign2018;.
    *
    * mathSign(3);     //  1
    * mathSign(-3);    // -1
@@ -81,5 +82,5 @@ module.exports = {
    * mathSign('foo'); // NaN
    * mathSign();      // NaN
    */
-  sign2018: $sign2018
+  sign2018: $sign2018,
 };
