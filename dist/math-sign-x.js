@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-14T21:49:12.782Z",
+  "date": "2019-07-14T22:26:35.788Z",
   "describe": "",
   "description": "Shim for Math.sign.",
   "file": "math-sign-x.js",
-  "hash": "4474362ff5eb47da5b3f",
+  "hash": "808ba47444de3a411ba4",
   "license": "MIT",
-  "version": "4.0.5"
+  "version": "4.0.6"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -350,7 +350,6 @@ function attempt(fn) {
     };
   }
 }
-;
 
 
 // CONCATENATED MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
