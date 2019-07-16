@@ -1,6 +1,5 @@
 import mathSign, {sign2016} from '../src/math-sign-x';
 
-/* eslint-disable-next-line lodash/prefer-noop */
 const ifFunctionsHaveNamesIt = function foo() {}.name === 'foo' ? it : xit;
 
 const isPositiveZero = function(zero) {
