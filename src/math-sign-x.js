@@ -29,7 +29,7 @@ export function sign2016(x) {
  * is a positive number, negative number, positive zero or negative zero, the function will
  * return 1, -1, 0 or -0 respectively. Otherwise, NaN is returned.
  */
-export default function sign2018(x) {
+const sign2018 = function sign2018(x) {
   const n = toNumber(x);
 
   if (n === 0 || numberIsNaN(n)) {
@@ -37,4 +37,6 @@ export default function sign2018(x) {
   }
 
   return n > 0 ? 1 : -1;
-}
+};
+
+export default sign2018;

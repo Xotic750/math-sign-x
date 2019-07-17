@@ -29,7 +29,7 @@ export function sign2016(x) {
  * return 1, -1, 0 or -0 respectively. Otherwise, NaN is returned.
  */
 
-export default function sign2018(x) {
+var sign2018 = function sign2018(x) {
   var n = toNumber(x);
 
   if (n === 0 || numberIsNaN(n)) {
@@ -37,6 +37,8 @@ export default function sign2018(x) {
   }
 
   return n > 0 ? 1 : -1;
-}
+};
+
+export default sign2018;
 
 //# sourceMappingURL=math-sign-x.esm.js.map
