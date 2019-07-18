@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-17T23:36:10.565Z",
+  "date": "2019-07-18T16:14:03.367Z",
   "describe": "",
   "description": "Shim for Math.sign.",
   "file": "math-sign-x.js",
   "hash": "fd648e3c92ade70f4967",
   "license": "MIT",
-  "version": "4.0.15"
+  "version": "4.0.16"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
