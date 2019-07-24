@@ -24,46 +24,14 @@
 
 Shim for Math.sign.
 
-- [math-sign-x](#module_math-sign-x)
-  - [`.sign2016`](#module_math-sign-x.sign2016) ⇒ <code>number</code>
-
-<a name="module_math-sign-x.sign2016"></a>
-
-### `math-sign-x.sign2016` ⇒ <code>number</code>
-
-This method returns the sign of a number, indicating whether the number is positive,
-negative or zero. (ES2016)
-
-**Kind**: static property of [<code>math-sign-x</code>](#module_math-sign-x)  
-**Returns**: <code>number</code> - A number representing the sign of the given argument. If the argument
-is a positive number, negative number, positive zero or negative zero, the function will
-return 1, -1, 0 or -0 respectively. Otherwise, NaN is returned.
-
-| Param | Type            | Description |
-| ----- | --------------- | ----------- |
-| x     | <code>\*</code> | A number.   |
-
-**Example**
-
-```js
-import {sign2016} from 'math-sign-x';
-
-console.log(sign2016(3)); //  1
-console.log(sign2016(-3)); // -1
-console.log(sign2016('-3')); // -1
-console.log(sign2016(0)); //  0
-console.log(sign2016(-0)); // -0
-console.log(sign2016(NaN)); // NaN
-console.log(sign2016('foo')); // NaN
-console.log(sign2016()); // NaN
-```
+### `module.exports(x)` ⇒ <code>\*</code> ⏏
 
 <a name="module_math-sign-x"></a>
 
 ### `math-sign-x` ⇒ <code>number</code>
 
 This method returns the sign of a number, indicating whether the number is positive,
-negative or zero. (ES2018)
+negative or zero. (ES2019)
 
 **Kind**: static property of [<code>math-sign-x</code>](#module_math-sign-x)  
 **Returns**: <code>number</code> - A number representing the sign of the given argument. If the argument
