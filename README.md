@@ -1,10 +1,12 @@
-<a href="https://travis-ci.org/Xotic750/math-sign-x"
+<a
+  href="https://travis-ci.org/Xotic750/math-sign-x"
   title="Travis status">
 <img
   src="https://travis-ci.org/Xotic750/math-sign-x.svg?branch=master"
   alt="Travis status" height="18">
 </a>
-<a href="https://david-dm.org/Xotic750/math-sign-x"
+<a
+  href="https://david-dm.org/Xotic750/math-sign-x"
   title="Dependency status">
 <img src="https://david-dm.org/Xotic750/math-sign-x/status.svg"
   alt="Dependency status" height="18"/>
@@ -15,15 +17,23 @@
 <img src="https://david-dm.org/Xotic750/math-sign-x/dev-status.svg"
   alt="devDependency status" height="18"/>
 </a>
-<a href="https://badge.fury.io/js/math-sign-x"
+<a
+  href="https://badge.fury.io/js/math-sign-x"
   title="npm version">
 <img src="https://badge.fury.io/js/math-sign-x.svg"
   alt="npm version" height="18">
 </a>
-<a href="https://www.jsdelivr.com/package/npm/math-sign-x"
+<a
+  href="https://www.jsdelivr.com/package/npm/math-sign-x"
   title="jsDelivr hits">
 <img src="https://data.jsdelivr.com/v1/package/npm/math-sign-x/badge?style=rounded"
   alt="jsDelivr hits" height="18">
+</a>
+<a
+  href="https://bettercodehub.com/results/Xotic750/math-sign-x"
+  title="bettercodehub score">
+<img src="https://bettercodehub.com/edge/badge/Xotic750/math-sign-x?branch=master"
+  alt="bettercodehub score" height="18">
 </a>
 
 <a name="module_math-sign-x"></a>
