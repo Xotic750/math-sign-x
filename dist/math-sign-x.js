@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-29T18:51:48.268Z",
+  "date": "2019-07-29T21:50:12.115Z",
   "describe": "",
   "description": "Shim for Math.sign.",
   "file": "math-sign-x.js",
