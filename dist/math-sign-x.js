@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-13T12:59:21.406Z",
+  "date": "2019-08-14T13:53:22.923Z",
   "describe": "",
   "description": "Shim for Math.sign.",
   "file": "math-sign-x.js",
-  "hash": "9662993257991ffb119f",
+  "hash": "3aa199160dbee65690ae",
   "license": "MIT",
-  "version": "4.0.30"
+  "version": "4.1.0"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1233,7 +1233,8 @@ var to_primitive_x_esm_toPrimitive = function toPrimitive(input, preferredType) 
  *
  * @type number
  */
-/* harmony default export */ var nan_x_esm = (0 / 0);
+var constantNAN = 0 / 0;
+/* harmony default export */ var nan_x_esm = (constantNAN);
 
 
 // CONCATENATED MODULE: ./node_modules/parse-int-x/dist/parse-int-x.esm.js
